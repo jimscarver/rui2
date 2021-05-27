@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Rui锐",
+  "description": "RChain Wallet",
+  "version": "1.0.0",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_title": "Rui锐",
+    "default_icon": {
+      "32": "rui-32.png",
+      "64": "rui-64.png",
+      "128": "rui-128.png"
+    }  
+  },
+  "icons": {
+    "32": "rui-32.png",
+    "64": "rui-64.png",
+    "128": "rui-128.png"
+  },
+  "content_scripts" : [
+    {
+      "matches": ["https://*/*","http://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-6nsOKtS0zHhVvejreHvrnCj7kj/uGFIGJxSfQ/wx30U='; object-src 'self'",
+  "permissions": [
+    "storage",
+    "https://*/*",
+    "http://*/*",
+    "activeTab",
+    "webRequest",
+    "notifications",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "web_accessible_resources": [
+    "*.js"
+  ]
+
+}
